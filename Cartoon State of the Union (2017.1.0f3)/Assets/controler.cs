@@ -17,7 +17,7 @@ public class controler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		activePerson = people[0];
+		activePerson = people[1];
 	}
 	
 	// Update is called once per frame
