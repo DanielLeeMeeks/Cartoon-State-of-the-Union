@@ -21,6 +21,7 @@ public class headTurn : MonoBehaviour {
 
 	[Header("Mouth")]
 	public Vector2 mouthTurn;
+	public Vector2 mouthOffset = new Vector2 (0, 0);
 	public SpriteRenderer mouth;
 	public Sprite[] mouths;
 	public int mouthStep = 0;
@@ -128,7 +129,7 @@ public class headTurn : MonoBehaviour {
 		mouthPost.x = mouthTurn.x * ((XValue/3f)/2f);
 		mouthPost.y = mouthTurn.y * ((YValue/3f)/2f);
 
-		mouth.gameObject.transform.position = new Vector3 (mouthPost.x+this.transform.position.x, mouthPost.y-4.5f+this.transform.position.y, 0 + this.transform.position.z);
+		mouth.gameObject.transform.position = new Vector3 (mouthPost.x+this.transform.position.x+mouthOffset.x, mouthPost.y-4.5f+this.transform.position.y+mouthOffset.y, 0 + this.transform.position.z);
 
 		if (debugText != null){
 			/*if (smoothing){debugText.text = "REAL: ("+roundFloat(headTurnValue.x)+", "+roundFloat(headTurnValue.y)+") [SMOOTHING ENABLED: "+headTurnSpeed+"] | SPRITE: ("+XValue+", "+YValue+")" ;/*}

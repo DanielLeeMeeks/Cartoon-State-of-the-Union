@@ -17,14 +17,15 @@ public class controler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		activePerson = people[1];
+		activePerson = people[2];
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown(KeyCode.Alpha1)){people[0] = activePerson;}
-		else if (Input.GetKeyDown(KeyCode.Alpha2)){people[1] = activePerson;}
+		if (Input.GetKeyDown(KeyCode.Alpha1)){switchTalker(0);}
+		else if (Input.GetKeyDown(KeyCode.Alpha2)){switchTalker(1);}
+		else if (Input.GetKeyDown(KeyCode.Alpha3)){switchTalker(2);}
 
 		//Body
 		if (Input.GetButtonDown("BodyUp")){
@@ -55,5 +56,9 @@ public class controler : MonoBehaviour {
 		//Blink
 		activePerson.setBlink(Input.GetButton("Blink"));
 
+	}
+
+	public void switchTalker(int index){
+		activePerson = people[index];
 	}
 }

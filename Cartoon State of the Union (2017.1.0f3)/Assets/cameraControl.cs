@@ -23,6 +23,7 @@ public class cameraControl : MonoBehaviour {
 	}
 
 	public void CameraByAxis(){
+		//Debug.Log(Input.GetAxisRaw("dPadX"));
 		if (Input.GetAxisRaw("dPadX") > 0.5f){
 			setCameraPostition(3);
 		}else if (Input.GetAxisRaw("dPadX") < -0.5f){
