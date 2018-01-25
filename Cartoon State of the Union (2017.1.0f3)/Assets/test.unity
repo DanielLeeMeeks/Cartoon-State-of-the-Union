@@ -10051,6 +10051,7 @@ GameObject:
   - component: {fileID: 1898538997}
   - component: {fileID: 1898539000}
   - component: {fileID: 1898538999}
+  - component: {fileID: 1898538998}
   m_Layer: 5
   m_Name: overlay
   m_TagString: Untagged
@@ -10076,6 +10077,28 @@ RectTransform:
   m_AnchoredPosition: {x: 25, y: -15}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1898538998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898538996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a9113f4da031f42a444ffc42f237e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  watermarks:
+  - '#cartoonSOTU'
+  - '@DanielLeeMeeks'
+  - '#cartoonSOTU'
+  - youtube.com/DanielLeeMeeks
+  - '#cartoonSOTU'
+  - twitch.tv/danielleemeeks
+  - '#cartoonSOTU'
+  - mixer.com/DanielLeeMeeks
+  - '#cartoonSOTU'
+  - instagram.com/danielleemeeks
 --- !u!114 &1898538999
 MonoBehaviour:
   m_ObjectHideFlags: 0
