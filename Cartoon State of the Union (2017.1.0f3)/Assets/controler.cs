@@ -10,18 +10,20 @@ public class controler : MonoBehaviour {
 	public Vector2 headTurnValue;
 	public bool smoothing = true;
 	public float headTurnSpeed; //If headSmothing is enabled
-
 	public headTurn [] people;
-
 	private headTurn activePerson;
+
+	public bool isTrumpHere = true;
 
 	// Use this for initialization
 	void Start () {
-		activePerson = people[2];
+		activePerson = people[0];
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (Input.GetButtonDown("TrumpToggle")){TrumpToggle();}
 
 		if (Input.GetKeyDown(KeyCode.Alpha1)){switchTalker(0);}
 		else if (Input.GetKeyDown(KeyCode.Alpha2)){switchTalker(1);}
@@ -58,7 +60,19 @@ public class controler : MonoBehaviour {
 
 	}
 
+	public void TrumpToggle(){
+		if (isTrumpHere){
+			people[0].body.gameObject.SetActive(false);
+			isTrumpHere = false;
+		}else{
+			people[0].body.gameObject.SetActive(true);
+			isTrumpHere = true;
+		}
+	}
+
 	public void switchTalker(int index){
+		activePerson.deselect();
 		activePerson = people[index];
+		activePerson.select();
 	}
 }

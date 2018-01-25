@@ -33,11 +33,14 @@ public class headTurn : MonoBehaviour {
 	public Sprite [] bodies;
 	public SpriteRenderer body;
 	public Text bodyDebugText;
+	public Sprite [] claps;
 
 	[Header("Debug Stuff")]
 	//public float XInput = 0;
 	//public float YInput = 0;
 	public Text debugText;
+	public bool activeSpeaker;
+	int clapCount = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -145,5 +148,44 @@ public class headTurn : MonoBehaviour {
 		else if (newNumber > -10){return "-00"+Mathf.Abs(newNumber);}
 		else if (newNumber > -100){return "-0"+Mathf.Abs(newNumber);}
 		else {return newNumber.ToString();}
+	}
+
+	public void deselect(){
+		body.sprite = bodies[2];
+		this.GetComponent<SpriteRenderer>().sprite = heads[3][3];
+		mouth.gameObject.transform.position = new Vector3 (0+this.transform.position.x+mouthOffset.x, 0-4.5f+this.transform.position.y+mouthOffset.y, 0 + this.transform.position.z);
+		activeSpeaker = false;
+		sit();
+	}
+
+	public void select(){
+		activeSpeaker = true;
+		stand();
+	}
+
+	public void stand(){
+		if (body.GetComponent<Animator>() != null){
+			body.GetComponent<Animator>().SetTrigger("stand");
+		}
+	}
+	public void sit(){
+		if (!activeSpeaker && !GameObject.Find("crowd").GetComponent<crowd>().crowdStanding){
+			if (body.GetComponent<Animator>() != null){
+				body.GetComponent<Animator>().SetTrigger("sit");
+			}
+		}
+	}
+	public void clap(){StartCoroutine(clapC());}
+	public IEnumerator clapC(){
+		if (GameObject.Find("crowd").GetComponent<crowd>().crowdStanding){
+			body.sprite = claps[clapCount];
+			clapCount++;
+			if (clapCount >= claps.Length){clapCount = 0;}
+			yield return new WaitForSeconds(0.05f);
+			StartCoroutine(clapC());
+		}else{
+			body.sprite = bodies[2];
+			clapCount = 0;
+		}
 	}
 }
