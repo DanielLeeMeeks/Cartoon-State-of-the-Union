@@ -9524,7 +9524,7 @@ Transform:
   m_Children:
   - {fileID: 647929547}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1725089443
 Animator:
@@ -10352,7 +10352,7 @@ Transform:
   m_Children:
   - {fileID: 1718763204}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1917896733
 Animator:
