@@ -39,9 +39,7 @@ public class crowd : MonoBehaviour {
         else if (Input.GetButtonDown("Crowd Clap Left")) {
             crowdStanding = true;
             _a.SetTrigger("clap_left"); debug.text = "Crowd: Clapping (Left)";
-            //people[0].sit();
-            people[1].stand();
-            people[1].clap();
+            people[1].sit();
             people[0].stand();
             people[0].clap();
         }
@@ -49,10 +47,9 @@ public class crowd : MonoBehaviour {
         {
              crowdStanding = true;
             _a.SetTrigger("clap_right"); debug.text = "Crowd: Clapping (Right)";
-            people[1].sit();
             people[0].sit();
-            //people[0].stand();
-            //people[0].clap();
+            people[1].stand();
+            people[1].clap();
 
         }
     }
